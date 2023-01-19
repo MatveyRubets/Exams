@@ -1,25 +1,22 @@
 // Find an intersection of two dictionaries
+"use strict";
+// Removed useless lexical environments
+// changed the fundecl to funexpr
+// added 'use strict'
+// changed names of variables to camelCase
 
-intersection = function intersection(object_1, object_2) {
-  first_keys = Object.keys(object_1);
-  {
-  }
-  for (attribute_name of first_keys) {
-    if (object_1[attribute_name] === object_2[attribute_name]) {
-      object_2[attribute_name] = object_1[attribute_name];
-      {
-      }
-    } else {
-      delete object_1[attribute_name];
-      {
-      }
-    }
-    {
-    }
-  }
-  {
-  }
-  return object_1;
+const intersection = (firstObj, secondObj) => {
+	const firstObjKeys = Object.keys(firstObj);
+
+	for (key of firstObjKeys) {
+		if (firstObj[key] === secondObj[key]) {
+			secondObj[key] = firstObj[key];
+		} else {
+			delete firstObj[key];
+		}
+	}
+
+	return firstObj;
 };
 
-require('../Tests/intersection.js')(intersection);
+require("../Tests/intersection.js")(intersection);
