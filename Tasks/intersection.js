@@ -1,13 +1,11 @@
 // Find an intersection of two dictionaries
 "use strict";
-// Changed if...else condition to ternar operator construction
 // destructurize incoming array into 2 objects
+// removed Object.keys(firstObj) assignement to variable
 
-const intersection = (...argsofobject) => {
-	const [firstObj, secondObj] = argsofobject;
-	const firstObjKeys = Object.keys(firstObj);
-
-	for (const key of firstObjKeys) {
+const intersection = (firstObj, secondObj = args) => {
+	for (const key of Object.keys(firstObj)) {
+		console.log(firstObj[key]);
 		firstObj[key] === secondObj[key]
 			? (secondObj[key] = firstObj[key])
 			: delete firstObj[key];
