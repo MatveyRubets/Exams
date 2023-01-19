@@ -1,19 +1,16 @@
 // Find an intersection of two dictionaries
 "use strict";
-// Removed useless lexical environments
-// changed the fundecl to funexpr
-// added 'use strict'
-// changed names of variables to camelCase
+// Changed if...else condition to ternar operator construction
+// destructurize incoming array into 2 objects
 
-const intersection = (firstObj, secondObj) => {
+const intersection = (...argsofobject) => {
+	const [firstObj, secondObj] = argsofobject;
 	const firstObjKeys = Object.keys(firstObj);
 
-	for (key of firstObjKeys) {
-		if (firstObj[key] === secondObj[key]) {
-			secondObj[key] = firstObj[key];
-		} else {
-			delete firstObj[key];
-		}
+	for (const key of firstObjKeys) {
+		firstObj[key] === secondObj[key]
+			? (secondObj[key] = firstObj[key])
+			: delete firstObj[key];
 	}
 
 	return firstObj;
